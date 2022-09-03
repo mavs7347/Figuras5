@@ -94,26 +94,26 @@ void Cuadrado::draw() {
         }
         cout << endl;
         int l = 0;
-        while (l < y)
+        while (l < getY())
         {
             cout << l << endl;
             l++;
         }
-        for (int c = 0; c < alto; c++)
+        for (int c = 0; c < getAlto(); c++)
         {
             cout << l;
             if (l < 10)
             {
                 cout << " ";
             }
-            for (int n = 1; n < x; n++)
+            for (int n = 1; n < getX(); n++)
             {
                 cout << "   ";
             }
             l++;
             
             cout << " ";
-            for (int i = 0; i < largo; i++)
+            for (int i = 0; i < getLargo(); i++)
             {
                 
                 if (getTipo() == 1)
@@ -122,7 +122,7 @@ void Cuadrado::draw() {
                 }
                 else
                 {
-                    if ((c == 0 || i == 0) || (c == (alto-1)) || (i == (largo-1)))
+                    if ((c == 0 || i == 0) || (c == (getAlto()-1)) || (i == (getLargo()-1)))
                     {
                         cout << " *";
                     }
@@ -216,21 +216,21 @@ void Triangulo::draw() {
         }
         cout << endl;
         int l = 0;
-        while (l < y)
+        while (l < getY())
         {
             cout << l << endl;
             l++;
         }
 
-        int aux = alto - 1;
-        for (int c = 1; c <= alto; c++)
+        int aux = getAlto() - 1;
+        for (int c = 1; c <= getAlto(); c++)
         {
             cout << l;
             if (l < 10)
             {
                 cout << " ";
             }
-            for (int n = 1; n < x; n++)
+            for (int n = 1; n < getX(); n++)
             {
                 cout << "   ";
             }
@@ -250,7 +250,7 @@ void Triangulo::draw() {
                 }
                 else
                 {
-                    if ((i == 0) || (c == alto) || (i == (c-1)))
+                    if ((i == 0) || (c == getAlto()) || (i == (c-1)))
                     {
                         cout << " *";
                     }
@@ -314,7 +314,6 @@ int Circulo::getDiametro() {
     {
         diametro++;
     }
-    
     return diametro;
 }
 void Circulo::draw() {
@@ -349,21 +348,21 @@ void Circulo::draw() {
         }
         cout << endl;
         int l = 0;
-        while (l < y)
+        while (l < getY())
         {
             cout << l << endl;
             l++;
         }
 
-        int aux = diametro;
-        for (int c = 1; c < diametro; c+=2)
+        int aux = getDiametro();
+        for (int c = 1; c < getDiametro(); c+=2)
         {
             cout << l;
             if (l < 10)
             {
                 cout << " ";
             }
-            for (int n = 1; n < x; n++)
+            for (int n = 1; n < getX(); n++)
             {
                 cout << "   ";
             }
@@ -396,14 +395,14 @@ void Circulo::draw() {
         }
 
         aux = 2;
-        for (int c = 1; c < diametro; c+=2)
+        for (int c = 1; c < getDiametro(); c+=2)
         {
             cout << l;
             if (l < 10)
             {
                 cout << " ";
             }
-            for (int n = 1; n < x; n++)
+            for (int n = 1; n < getX(); n++)
             {
                 cout << "   ";
             }
@@ -414,7 +413,7 @@ void Circulo::draw() {
                 cout << " ";
             }
             aux += 2;
-            for (int i = diametro; i > (c-1); i--)
+            for (int i = getDiametro(); i > (c-1); i--)
             {
                 if (getTipo() == 1)
                 {
@@ -422,7 +421,7 @@ void Circulo::draw() {
                 }
                 else
                 {
-                    if ((i == diametro) || (i == c) || (c == (diametro-2)))
+                    if ((i == getDiametro()) || (i == c) || (c == (getDiametro()-2)))
                     {
                         cout << "* ";
                     }

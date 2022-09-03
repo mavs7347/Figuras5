@@ -21,6 +21,8 @@ class Cuadrado : public IFigura {
         int y;
     public:
         Cuadrado(int, int);
+        int getX();
+        int getY();
         void setTipo(int);
         int getTipo();
         void setDimensiones(int, int);
@@ -38,6 +40,8 @@ class Triangulo : public IFigura {
         int y;
     public:
         Triangulo(int, int);
+        int getX();
+        int getY();
         void setTipo(int);
         int getTipo();
         void setAlto(int);
@@ -54,6 +58,8 @@ class Circulo : public IFigura {
         int y;
     public:
         Circulo(int, int);
+        int getX();
+        int getY();
         void setTipo(int);
         int getTipo();
         void setDiametro(int);

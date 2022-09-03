@@ -12,13 +12,34 @@ Cuadrado::Cuadrado(int x = 0, int y = 0) {
     this->x = x;
     this->y = y;
 }
+int Cuadrado::getX() {
+    if (this->x < 0)
+    {
+        this->x = 0;
+    }
+    else if(this->x >= 25)
+    {
+        this->x = 25;
+    }
+    return x;
+}
+int Cuadrado::getY() {
+    if (this->y < 0)
+    {
+        this->y = 0;
+    }
+    else if(this->y >= 25)
+    {
+        this->y = 25;
+    }
+    return y;
+}
 void Cuadrado::setTipo(int type) {
     tipo = type;
 }
 int Cuadrado::getTipo() {
     if (tipo != 1 && tipo != 2)
     {
-        cout << "Tipo invalido." << endl;
         tipo = 1;
     }
     return tipo;
@@ -30,7 +51,6 @@ void Cuadrado::setDimensiones(int height = 2, int large = 2) {
 int Cuadrado::getAlto() {
 	if (alto < 2)
 	{
-		cout << "Numero invalido" << endl;
         alto = 2;
 	}
     return alto;
@@ -38,7 +58,6 @@ int Cuadrado::getAlto() {
 int Cuadrado::getLargo() {
 	if (largo < 2)
 	{
-		cout << "Numero invalido" << endl;
         largo = 2;
 	}
     return largo;
@@ -47,8 +66,8 @@ void Cuadrado::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << x << "\t Alto = " << getAlto() << endl;
-        cout << "Y = " << y << "\t Largo = " << getLargo() << endl;
+        cout << "X = " << getX() << "\t Alto = " << getAlto() << endl;
+        cout << "Y = " << getY() << "\t Largo = " << getLargo() << endl;
         if (mov == 'w') {
             y--;
         }
@@ -97,7 +116,7 @@ void Cuadrado::draw() {
             for (int i = 0; i < largo; i++)
             {
                 
-                if (tipo == 1)
+                if (getTipo() == 1)
                 {
                     cout << " *";
                 }
@@ -123,13 +142,34 @@ Triangulo::Triangulo(int x = 0, int y = 0) {
     this->x = x;
     this->y = y;
 }
+int Triangulo::getX() {
+    if (this->x < 0)
+    {
+        this->x = 0;
+    }
+    else if(this->x >= 25)
+    {
+        this->x = 25;
+    }
+    return x;
+}
+int Triangulo::getY() {
+    if (this->y < 0)
+    {
+        this->y = 0;
+    }
+    else if(this->y >= 25)
+    {
+        this->y = 25;
+    }
+    return y;
+}
 void Triangulo::setTipo(int type) {
     tipo = type;
 }
 int Triangulo::getTipo() {
     if (tipo != 1 && tipo != 2)
     {
-        cout << "Tipo invalido." << endl;
         tipo = 1;
     }
     return tipo;
@@ -140,7 +180,6 @@ void Triangulo::setAlto(int height = 7) {
 int Triangulo::getAlto() {
     if (alto < 2)
     {
-        cout << "Numero invalido" << endl;
         alto = 2;
     }
     return alto;
@@ -149,8 +188,8 @@ void Triangulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << x << "\t Alto = " << getAlto() << endl;
-        cout << "Y = " << y << endl;
+        cout << "X = " << getX() << "\t Alto = " << getAlto() << endl;
+        cout << "Y = " << getY() << endl;
         if (mov == 'w') {
             y--;
         }
@@ -205,7 +244,7 @@ void Triangulo::draw() {
             aux -= 1;
             for (int i = 0; i < c; i++)
             {
-                if (tipo == 1)
+                if (getTipo() == 1)
                 {
                     cout << " *";
                 }
@@ -231,13 +270,34 @@ Circulo::Circulo(int x = 0, int y = 0) {
     this->x = x;
     this->y = y;
 }
+int Circulo::getX() {
+    if (this->x < 0)
+    {
+        this->x = 0;
+    }
+    else if(this->x >= 25)
+    {
+        this->x = 25;
+    }
+    return x;
+}
+int Circulo::getY() {
+    if (this->y < 0)
+    {
+        this->y = 0;
+    }
+    else if(this->y >= 25)
+    {
+        this->y = 25;
+    }
+    return y;
+}
 void Circulo::setTipo(int type) {
     tipo = type;
 }
 int Circulo::getTipo() {
     if (tipo != 1 && tipo != 2)
     {
-        cout << "Tipo invalido." << endl;
         tipo = 1;
     }
     return tipo;
@@ -248,7 +308,6 @@ void Circulo::setDiametro(int diameter = 7) {
 int Circulo::getDiametro() {
     if (diametro < 3)
     {
-        cout << "Numero invalido" << endl;
         diametro = 7;
     }
     if (diametro % 2 == 0)
@@ -262,8 +321,8 @@ void Circulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << x << "\t Diametro = " << getDiametro() << endl;
-        cout << "Y = " << y << endl;
+        cout << "X = " << getX() << "\t Diametro = " << getDiametro() << endl;
+        cout << "Y = " << getY() << endl;
         if (mov == 'w') {
             y--;
         }
@@ -317,7 +376,7 @@ void Circulo::draw() {
             aux -= 2;
             for (int i = 0; i <= (c+1); i++)
             {
-                if (tipo == 1)
+                if (getTipo() == 1)
                 {
                     cout << "* ";
                 }
@@ -357,7 +416,7 @@ void Circulo::draw() {
             aux += 2;
             for (int i = diametro; i > (c-1); i--)
             {
-                if (tipo == 1)
+                if (getTipo() == 1)
                 {
                     cout << "* ";
                 }
@@ -393,7 +452,7 @@ Programa::Programa() {
 void Programa::run() {
     do {
         cout << "Elige la figura:" << endl;
-        cout << "1.- Cuadrado." << endl;
+        cout << "1.- Cuadrado/Rectangulo." << endl;
         cout << "2.- Triangulo." << endl;
         cout << "3.- Circulo." << endl;
         cin >> opc;

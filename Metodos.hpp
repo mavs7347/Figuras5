@@ -2,6 +2,22 @@
 #include "Clases.hpp"
 using namespace std;
 
+void movimiento(char mov, int *x, int *y) {
+    cout << "X = " << *x << endl;
+    cout << "Y = " << *y << endl;
+    if (mov == 'w') {
+        *y -= 1;
+    }
+    else if (mov == 's') {
+        *y += 1;
+    }
+    else if (mov == 'a') {
+        *x -= 1;
+    }
+    else if (mov == 'd') {
+        *x += 1;
+    }
+}
 /********************************FORMA********************************/
 int IFigura::getX() {}
 int IFigura::getY() {}
@@ -10,7 +26,6 @@ int IFigura::getTipo() {}
 void IFigura::setLargo(int) {}
 int IFigura::getLargo() {}
 void IFigura::draw() {}
-
 /********************************CUADRADO********************************/
 void Cuadrado::setX(int x) {
     this->x = x;
@@ -64,21 +79,10 @@ void Cuadrado::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
-        cout << "Y = " << getY() << endl;
-        if (mov == 'w') {
-            y--;
-        }
-        else if (mov == 's') {
-            y++;
-        }
-        else if (mov == 'a') {
-            x--;
-        }
-        else if (mov == 'd') {
-            x++;
-        }
-
+        getX();
+        getY();
+        cout << "Largo = " << getLargo() << endl;
+        movimiento(mov, &x, &y);
         for (int c = 0; c <= 25; c++)
         {
             if (c < 10)
@@ -188,21 +192,10 @@ void Triangulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
-        cout << "Y = " << getY() << endl;
-        if (mov == 'w') {
-            y--;
-        }
-        else if (mov == 's') {
-            y++;
-        }
-        else if (mov == 'a') {
-            x--;
-        }
-        else if (mov == 'd') {
-            x++;
-        }
-
+        getX();
+        getY();
+        cout << "Largo = " << getLargo() << endl;
+        movimiento(mov, &x, &y);
         for (int c = 0; c <= 25; c++)
         {
             if (c < 10)
@@ -322,21 +315,10 @@ void Circulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
-        cout << "Y = " << getY() << endl;
-        if (mov == 'w') {
-            y--;
-        }
-        else if (mov == 's') {
-            y++;
-        }
-        else if (mov == 'a') {
-            x--;
-        }
-        else if (mov == 'd') {
-            x++;
-        }
-
+        getX();
+        getY();
+        cout << "Largo = " << getLargo() << endl;
+        movimiento(mov, &x, &y);
         for (int c = 0; c <= 25; c++)
         {
             if (c < 10)

@@ -3,14 +3,17 @@
 using namespace std;
 
 /********************************FORMA********************************/
-void IFigura::draw() {
-    cout << "Metodo dibujar" << endl;
-}
+int IFigura::getX() {}
+int IFigura::getY() {}
+void IFigura::setTipo(int) {}
+int IFigura::getTipo() {}
+void IFigura::setLargo(int) {}
+int IFigura::getLargo() {}
+void IFigura::draw() {}
 
 /********************************CUADRADO********************************/
-Cuadrado::Cuadrado(int x = 0, int y = 0) {
+void Cuadrado::setX(int x) {
     this->x = x;
-    this->y = y;
 }
 int Cuadrado::getX() {
     if (this->x < 0)
@@ -23,6 +26,9 @@ int Cuadrado::getX() {
     }
     return x;
 }
+void Cuadrado::setY(int y) {
+    this->y = y;
+}
 int Cuadrado::getY() {
     if (this->y < 0)
     {
@@ -34,7 +40,7 @@ int Cuadrado::getY() {
     }
     return y;
 }
-void Cuadrado::setTipo(int type) {
+void Cuadrado::setTipo(int type = 1) {
     tipo = type;
 }
 int Cuadrado::getTipo() {
@@ -44,16 +50,8 @@ int Cuadrado::getTipo() {
     }
     return tipo;
 }
-void Cuadrado::setDimensiones(int height = 2, int large = 2) {
-	alto = height;
+void Cuadrado::setLargo(int large = 2) {
     largo = large;
-}
-int Cuadrado::getAlto() {
-	if (alto < 2)
-	{
-        alto = 2;
-	}
-    return alto;
 }
 int Cuadrado::getLargo() {
 	if (largo < 2)
@@ -66,8 +64,8 @@ void Cuadrado::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Alto = " << getAlto() << endl;
-        cout << "Y = " << getY() << "\t Largo = " << getLargo() << endl;
+        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
+        cout << "Y = " << getY() << endl;
         if (mov == 'w') {
             y--;
         }
@@ -99,7 +97,7 @@ void Cuadrado::draw() {
             cout << l << endl;
             l++;
         }
-        for (int c = 0; c < getAlto(); c++)
+        for (int c = 0; c < getLargo(); c++)
         {
             cout << l;
             if (l < 10)
@@ -122,7 +120,7 @@ void Cuadrado::draw() {
                 }
                 else
                 {
-                    if ((c == 0 || i == 0) || (c == (getAlto()-1)) || (i == (getLargo()-1)))
+                    if ((c == 0 || i == 0) || (c == (getLargo()-1)) || (i == (getLargo()-1)))
                     {
                         cout << " *";
                     }
@@ -138,9 +136,8 @@ void Cuadrado::draw() {
 }
 
 /********************************TRIANGULO********************************/
-Triangulo::Triangulo(int x = 0, int y = 0) {
+void Triangulo::setX(int x) {
     this->x = x;
-    this->y = y;
 }
 int Triangulo::getX() {
     if (this->x < 0)
@@ -153,6 +150,9 @@ int Triangulo::getX() {
     }
     return x;
 }
+void Triangulo::setY(int y) {
+    this->y = y;
+}
 int Triangulo::getY() {
     if (this->y < 0)
     {
@@ -164,7 +164,7 @@ int Triangulo::getY() {
     }
     return y;
 }
-void Triangulo::setTipo(int type) {
+void Triangulo::setTipo(int type = 1) {
     tipo = type;
 }
 int Triangulo::getTipo() {
@@ -174,21 +174,21 @@ int Triangulo::getTipo() {
     }
     return tipo;
 }
-void Triangulo::setAlto(int height = 7) {
-    alto = height;
+void Triangulo::setLargo(int large = 7) {
+    largo = large;
 }
-int Triangulo::getAlto() {
-    if (alto < 2)
+int Triangulo::getLargo() {
+    if (largo < 2)
     {
-        alto = 2;
+        largo = 2;
     }
-    return alto;
+    return largo;
 }
 void Triangulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Alto = " << getAlto() << endl;
+        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
         cout << "Y = " << getY() << endl;
         if (mov == 'w') {
             y--;
@@ -222,8 +222,8 @@ void Triangulo::draw() {
             l++;
         }
 
-        int aux = getAlto() - 1;
-        for (int c = 1; c <= getAlto(); c++)
+        int aux = getLargo() - 1;
+        for (int c = 1; c <= getLargo(); c++)
         {
             cout << l;
             if (l < 10)
@@ -250,7 +250,7 @@ void Triangulo::draw() {
                 }
                 else
                 {
-                    if ((i == 0) || (c == getAlto()) || (i == (c-1)))
+                    if ((i == 0) || (c == getLargo()) || (i == (c-1)))
                     {
                         cout << " *";
                     }
@@ -266,9 +266,8 @@ void Triangulo::draw() {
 }
 
 /********************************CIRCULO********************************/
-Circulo::Circulo(int x = 0, int y = 0) {
+void Circulo::setX(int x) {
     this->x = x;
-    this->y = y;
 }
 int Circulo::getX() {
     if (this->x < 0)
@@ -281,6 +280,9 @@ int Circulo::getX() {
     }
     return x;
 }
+void Circulo::setY(int y) {
+    this->y = y;
+}
 int Circulo::getY() {
     if (this->y < 0)
     {
@@ -292,7 +294,7 @@ int Circulo::getY() {
     }
     return y;
 }
-void Circulo::setTipo(int type) {
+void Circulo::setTipo(int type = 1) {
     tipo = type;
 }
 int Circulo::getTipo() {
@@ -302,25 +304,25 @@ int Circulo::getTipo() {
     }
     return tipo;
 }
-void Circulo::setDiametro(int diameter = 7) {
-    diametro = diameter;
+void Circulo::setLargo(int large = 7) {
+    largo = large;
 }
-int Circulo::getDiametro() {
-    if (diametro < 3)
+int Circulo::getLargo() {
+    if (largo < 3)
     {
-        diametro = 7;
+        largo = 7;
     }
-    if (diametro % 2 == 0)
+    if (largo % 2 == 0)
     {
-        diametro++;
+        largo++;
     }
-    return diametro;
+    return largo;
 }
 void Circulo::draw() {
     char mov;
     while ((mov = cin.get()) != 'p') {
         Limpiar();
-        cout << "X = " << getX() << "\t Diametro = " << getDiametro() << endl;
+        cout << "X = " << getX() << "\t Largo = " << getLargo() << endl;
         cout << "Y = " << getY() << endl;
         if (mov == 'w') {
             y--;
@@ -354,8 +356,8 @@ void Circulo::draw() {
             l++;
         }
 
-        int aux = getDiametro();
-        for (int c = 1; c < getDiametro(); c+=2)
+        int aux = getLargo();
+        for (int c = 1; c < getLargo(); c+=2)
         {
             cout << l;
             if (l < 10)
@@ -395,7 +397,7 @@ void Circulo::draw() {
         }
 
         aux = 2;
-        for (int c = 1; c < getDiametro(); c+=2)
+        for (int c = 1; c < getLargo(); c+=2)
         {
             cout << l;
             if (l < 10)
@@ -413,7 +415,7 @@ void Circulo::draw() {
                 cout << " ";
             }
             aux += 2;
-            for (int i = getDiametro(); i > (c-1); i--)
+            for (int i = getLargo(); i > (c-1); i--)
             {
                 if (getTipo() == 1)
                 {
@@ -421,7 +423,7 @@ void Circulo::draw() {
                 }
                 else
                 {
-                    if ((i == getDiametro()) || (i == c) || (c == (getDiametro()-2)))
+                    if ((i == getLargo()) || (i == c) || (c == (getLargo()-2)))
                     {
                         cout << "* ";
                     }
@@ -438,7 +440,11 @@ void Circulo::draw() {
 }
 
 /********************************LIENZO********************************/
-void Lienzo (IFigura *forma) {
+void Lienzo (IFigura *forma, int x, int y, int largo, int opc) {
+    forma->setX(x);
+    forma->setY(y);
+    forma->setLargo(largo);
+    forma->setTipo(opc);
     forma->draw();
 }
 
@@ -451,7 +457,7 @@ Programa::Programa() {
 void Programa::run() {
     do {
         cout << "Elige la figura:" << endl;
-        cout << "1.- Cuadrado/Rectangulo." << endl;
+        cout << "1.- Cuadrado." << endl;
         cout << "2.- Triangulo." << endl;
         cout << "3.- Circulo." << endl;
         cin >> opc;
@@ -497,35 +503,29 @@ void Programa::menu() {
         cout << endl;
         cout << "Elija el tipo de figura: ";
         cin >> opc;
-        int alto = 0, largo = 0;
-        cout << "Introduzca la medida del alto: ";
-        cin >> alto;
+        int largo = 0;
         cout << "Introduzca la medida del largo: ";
         cin >> largo;
         
-        Cuadrado c = Cuadrado(x, y);
-        c.setDimensiones(alto, largo);
-        c.setTipo(opc);
-        Lienzo(&c);
+        Cuadrado cuadrado;
+        Lienzo(&cuadrado, x, y, largo, opc);
     }
     else if (opc == 2)
     {
         cout << "1.- Relleno \t 2.- Hueco" << endl;
-        cout << "   *    \t    *  " << endl;
-        cout << "  * *   \t   * * " << endl;
-        cout << " * * *  \t  *   *" << endl;
+        cout << "   *    \t    *   " << endl;
+        cout << "  * *   \t   * *  " << endl;
+        cout << " * * *  \t  *   * " << endl;
         cout << "* * * * \t * * * *" << endl;
         cout << endl;
         cout << "Elija el tipo de figura: ";
         cin >> opc;
-        int alto;
-        cout << "Introduzca la medida del alto: ";
-        cin >> alto;
+        int largo = 0;
+        cout << "Introduzca la medida del largo: ";
+        cin >> largo;
         
-        Triangulo t = Triangulo(x, y);
-        t.setAlto(alto);
-        t.setTipo(opc);
-        Lienzo(&t);
+        Triangulo triangulo;
+        Lienzo(&triangulo, x, y, largo, opc);
     }
     else if (opc == 3)
     {
@@ -536,14 +536,12 @@ void Programa::menu() {
         cout << endl;
         cout << "Elija el tipo de figura: ";
         cin >> opc;
-        int diametro;
-        cout << "Introduzca la medida del alto: ";
-        cin >> diametro;
+        int largo = 0;
+        cout << "Introduzca la medida del largo: ";
+        cin >> largo;
         
-        Circulo z = Circulo (x, y);
-        z.setDiametro(diametro);
-        z.setTipo(opc);
-        Lienzo(&z);
+        Circulo circulo;
+        Lienzo(&circulo, x, y, largo, opc);
     }
     else
     {

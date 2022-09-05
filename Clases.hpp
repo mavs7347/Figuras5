@@ -8,6 +8,14 @@ void Limpiar() {
 /********************************FORMA********************************/
 class IFigura {
     public:
+        virtual void setX(int) {}
+        virtual int getX();
+        virtual void setY(int) {}
+        virtual int getY();
+        virtual void setTipo(int);
+        virtual int getTipo();
+        virtual void setLargo(int);
+        virtual int getLargo();
         virtual void draw();
 };
 
@@ -15,18 +23,17 @@ class IFigura {
 class Cuadrado : public IFigura {
     private:
         int tipo;
-        int alto;
         int largo;
         int x;
         int y;
     public:
-        Cuadrado(int, int);
+        void setX(int);
         int getX();
+        void setY(int);
         int getY();
         void setTipo(int);
         int getTipo();
-        void setDimensiones(int, int);
-        int getAlto();
+        void setLargo(int);
         int getLargo();
         void draw ();
 };
@@ -35,17 +42,18 @@ class Cuadrado : public IFigura {
 class Triangulo : public IFigura {
     private:
         int tipo;
-        int alto;
+        int largo;
         int x;
         int y;
     public:
-        Triangulo(int, int);
+        void setX(int);
         int getX();
+        void setY(int);
         int getY();
         void setTipo(int);
         int getTipo();
-        void setAlto(int);
-        int getAlto();
+        void setLargo(int);
+        int getLargo();
         void draw();
 };
 
@@ -53,17 +61,18 @@ class Triangulo : public IFigura {
 class Circulo : public IFigura {
     private:
         int tipo;
-        int diametro;
+        int largo;
         int x;
         int y;
     public:
-        Circulo(int, int);
+        void setX(int);
         int getX();
+        void setY(int);
         int getY();
         void setTipo(int);
         int getTipo();
-        void setDiametro(int);
-        int getDiametro();
+        void setLargo(int);
+        int getLargo();
         void draw();
 };
 
